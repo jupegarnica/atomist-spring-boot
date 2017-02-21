@@ -13,4 +13,10 @@ node {
       // Run the maven build
       sh "mvn clean verify -Dmaven.test.failure.ignore=true"
     }
+
+    stage('Analysis') {
+      withSonarQubeEnv('SonarQube') {
+        sh 'mvn sonar:sonar'
+      }
+    }
 }
