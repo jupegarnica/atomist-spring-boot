@@ -9,7 +9,7 @@ node {
     // Mark the code build 'stage'....
     stage 'Build'
     // Run the maven build
-    sh "mvn clean verify"
+    sh "mvn clean verify -Dmaven.test.skip.failure=true"
     
     stage('SonarQube analysis') {
       withSonarQubeEnv('SonarQube') {
