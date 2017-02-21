@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-	/**
-	* Request home path
-	**/
+    /**
+    * Request home path
+    **/
     @RequestMapping(path = "/")
     public String home() {
         return "Hello REST Microservice World";
