@@ -4,7 +4,6 @@ node {
     checkout scm
 
     stage 'Configure'
-    # env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
     def mvnHome = tool 'Maven 3'
 
     // Mark the code build 'stage'....
