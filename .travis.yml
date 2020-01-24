@@ -1,20 +1,19 @@
 language: java
+
 jdk:
-  - oraclejdk8
+  - oraclejdk11
+
 addons:
-  sonarqube:
+  sonarcloud:
     organization: sonarqubegeekshubs
-    branches:
-    - ".*"
-    token:
-      secure: "XT/d31ubFq5K62bmCLd0IZAA3cdWIw0wWUsx9ajt7ydyzUfvZRvbjPrH9ar4hDJt2oVjiKkoHQYoiXpbe/oxTMc3SddRoJRHDaVcbaQ36XLiEBNEl4/vJZHXrjI8JUqFedSsviHOu/HmXOLrpWAPbB7Jt6kAUn8IQgZ51eZg88PXwCAa9+aQyyDFat7k2mBTrac9NKpqswVS+VPT0YHmKR+pxQ51wABT8zOdggT5RYWa+YZOdHg9iYXHjwpe3lVCuOhVUln6lUkjvW8Iv7TNzjzsTE/cSDXTpn/vjAK8dpm+gUB0BuWvVr/LbECU0q79825at2S5sljfq1J4WaWUDM2cXiYEf1W7gE1bGJ18wXhxXKQ+/p/vHlpHTTy+93EARCdn+l9uoDJRMs24SUoBqYbiY1JCrE+X1DWG+KM+W5SSXfi5OvUAg1/vcSDfqYyWOJIGMf1jIbZC+lftBW/nHaqJ09Cc7yCrfnX4nfgRxbkPqYXfPlRItpgMdT1TKoxj+WmoB8Fu3WtxF0RMvXxRPbvyauR6QW+GAKkmJ6s7hUqgF+F9xRi8E8xEOI27MtVJTfjV06V27PkQlV1mgbWCV8IUAuQGRXkSjKADGq+N+GOVRm1Ng46uBdwqzcFfg4ryKG4x6ki3Vc5ZfO78RGeI859mZujWMk5k7N6zrSxTrfk="
-    github_token:
-      secure: "WaSp4bC/iqCOSI/ZQCkmxXbB9caOS9xJaT4qprhA74xqUY9iZ07L6xPzR0QBS7tnt5FatPpS22/zcaKcgs9QKk0gzo++76mq/HTEXjCax3VhWcHbiJf8XXtYJ1iSAFK6rKQrG695OKEyy7r2cinaZjzQQZeW9ZudNq//7Pb2oaKzy2BuOFpksyfY87lmE+lGG0cTJB+goTTXhWOd+KfG6n2WUryvcQEv1+PJ3KtktbSg5J+DhyrfZgifK/qHoJIX2dH8+4udFQ1xeVJo7/H2npGANDUELar7e5V6EIIc7t30WoIHZdWL2DGZ2anVyrXKEnrqzHlQl++JYFrR3+RRPxQOAuStmerHMvJqsJvKBnVPn9ZrY/7E/tY7C96wEUYScG1rYN44ZQUro1/em1kA0UN2aQYr74Wh1iESpf9hoDg2h998vbIn66dJzFoSLgvAHG4aseR6GMzMVLLOZK2IQy+PHw3AS6FpbtaHVhElLLYWctleYNFshMY3YVo/UBWuYI8ME5jxnYSOPkzhRHTzlywCjD5lANEiaeIWetlpqzVyyuUBsqt3S+diUpa6+rfX0uk0aKJAPNLwmPEV6LY9iuIbIMEh50NzLpj+4toqAMCCnjspK7QBd37uFcMIT+mUTX0MD0SOuFBowyvgUHo+LgpYBB1BCDnxboUWkWD5YJc="
+
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn clean verify sonar:sonar -Pcoverage
+
 cache:
   directories:
   - "$HOME/.m2/repository"
   - "$HOME/.sonar/cache"
+
 notifications:
   email: false
