@@ -5,7 +5,7 @@ node {
     }
 
     stage('Configure'){
-      echo "${tool 'Maven 3'}"
+      echo "${tool 'maven'}"
       env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
     }
 
