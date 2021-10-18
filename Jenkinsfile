@@ -4,9 +4,10 @@ node {
      checkout scm
     }
 
-    // stage('Configure'){
-    //   env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
-    // }
+    stage('Configure'){
+      echo "${tool 'Maven 3'}"
+      env.PATH = "${tool 'Maven 3'}/bin:${env.PATH}"
+    }
 
     // Mark the code build 'stage'....
     stage('Build') {
