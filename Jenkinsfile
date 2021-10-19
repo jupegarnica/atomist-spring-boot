@@ -5,7 +5,7 @@ node {
     }
 
     stage('Configure'){
-      // echo "${tool 'maven'}"
+      echo "${tool 'maven'}"
       env.PATH = "${tool 'maven'}/bin:${env.PATH}"
     }
 
@@ -13,7 +13,8 @@ node {
     stage('Build') {
       withMaven(){
        // Run the maven build
-        sh "mvn clean verify -Dmaven.test.failure.ignore=true"
+        // sh "mvn clean verify -Dmaven.test.failure.ignore=true"
+        sh "mvn clean verify"
 
       }
     }
