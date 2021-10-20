@@ -12,7 +12,8 @@ node {
     // Mark the code build 'stage'....
     stage('Build') {
 
-        sh "mvn clean verify -Dmaven.test.failure.ignore=true"
+        // sh "mvn clean verify -Dmaven.test.failure.ignore=true"
+         sh "mvn clean verify -Dmaven.test.failure.ignore=false"
     }
 
     stage('Analysis') {
