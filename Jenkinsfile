@@ -11,12 +11,8 @@ node {
 
     // Mark the code build 'stage'....
     stage('Build') {
-      withMaven(){
-       // Run the maven build
-        // sh "mvn clean verify -Dmaven.test.failure.ignore=true"
-        sh "mvn clean verify"
 
-      }
+        sh "mvn clean verify -Dmaven.test.failure.ignore=true"
     }
 
     stage('Analysis') {
@@ -24,4 +20,14 @@ node {
         sh "mvn sonar:sonar"
       }
     }
+
+    // stage('validate quality gate') {
+    //   //  testQualityGate('sonarqube')
+    // }
+
+    // stage('Deploy') {
+    //     sh "mvn deploy"
+    // }
+
+
 }
