@@ -14,6 +14,10 @@ public class HomeController {
     **/
     @RequestMapping(path = "/")
     public String home() {
+        if(true) {
+        } else {
+
+        }
         return "Hello REST Microservice World";
     }
 }
