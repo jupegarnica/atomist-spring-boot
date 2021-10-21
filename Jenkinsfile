@@ -11,8 +11,10 @@ node {
 
     // Mark the code build 'stage'....
     stage('Build') {
-
+        echo "BUILD STARTING"
         sh "mvn clean verify -Dmaven.test.failure.ignore=true"
+        echo "BUILD FINISHED"
+        // sh "mvn clean verify -Dmaven.test.failure.ignore=false"
     }
 
     stage('Analysis') {
